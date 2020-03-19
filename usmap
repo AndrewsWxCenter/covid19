@@ -1,0 +1,171 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/us/us-nc-all.js"></script>
+<script src="https://code.highcharts.com/maps/modules/pattern-fill.js"></script>
+
+<div id="container"></div>
+<style>
+#container {
+    height: 800px;
+    min-width: 310px;
+    max-width: 100%;
+    margin: 0 auto; 
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+</style>
+
+<div id="container"></div>
+
+<script>
+// Prepare demo data
+// Data is joined to map using value of 'hc-key' property by default.
+// See API docs for 'joinBy' for more info on linking data and map.
+var data = [
+    ['us-nc-031', 8],
+    ['us-nc-187', 4],
+    ['us-nc-095', 8],
+    ['us-nc-129', 26],
+    ['us-nc-183', 46],
+    ['us-nc-077', 4],
+    ['us-nc-121', 2],
+    ['us-nc-011', 2],
+    ['us-nc-091', 3],
+    ['us-nc-033', 0],
+    ['us-nc-001', 4],
+    ['us-nc-019', 7],
+    ['us-nc-087', 3],
+    ['us-nc-175', 4],
+    ['us-nc-153', 2],
+    ['us-nc-107', 2],
+    ['us-nc-191', 6],
+    ['us-nc-079', 1],
+    ['us-nc-161', 2],
+    ['us-nc-101', 7],
+    ['us-nc-127', 4],
+    ['us-nc-081', 13],
+    ['us-nc-157', 0],
+    ['us-nc-013', 111],
+    ['us-nc-137', 25],
+    ['us-nc-103', 0],
+    ['us-nc-049', 126],
+    ['us-nc-063', 18],
+    ['us-nc-037', 9],
+    ['us-nc-185', 0],
+    ['us-nc-131', 0],
+    ['us-nc-065', 3],
+    ['us-nc-195', 1],
+    ['us-nc-145', 4],
+    ['us-nc-083', 0],
+    ['us-nc-117', 2],
+    ['us-nc-135', 8],
+    ['us-nc-055', 5],
+    ['us-nc-099', 1],
+    ['us-nc-159', 5],
+    ['us-nc-097', 1],
+    ['us-nc-025', 5],
+    ['us-nc-179', 7],
+    ['us-nc-181', 2],
+    ['us-nc-177', 5],
+    ['us-nc-189', 3],
+    ['us-nc-193', 0],
+    ['us-nc-003', 0],
+    ['us-nc-027', 1],
+    ['us-nc-151', 4],
+    ['us-nc-041', 7],
+    ['us-nc-073', 6],
+    ['us-nc-139', 7],
+    ['us-nc-039', 0],
+    ['us-nc-113', 0],
+    ['us-nc-133', 17],
+    ['us-nc-045', 1],
+    ['us-nc-109', 4],
+    ['us-nc-119', 41],
+    ['us-nc-199', 2],
+    ['us-nc-089', 2],
+    ['us-nc-147', 11],
+    ['us-nc-143', 6],
+    ['us-nc-125', 7],
+    ['us-nc-007', 1],
+    ['us-nc-141', 11],
+    ['us-nc-163', 9],
+    ['us-nc-085', 3],
+    ['us-nc-155', 1],
+    ['us-nc-051', 5],
+    ['us-nc-075', 0],
+    ['us-nc-023', 2],
+    ['us-nc-165', 3],
+    ['us-nc-093', 1],
+    ['us-nc-111', 3],
+    ['us-nc-047', 8],
+    ['us-nc-061', 9],
+    ['us-nc-197', 0],
+    ['us-nc-067', 8],
+    ['us-nc-171', 9],
+    ['us-nc-169', 1],
+    ['us-nc-057', 5],
+    ['us-nc-059', 2],
+    ['us-nc-029', 4],
+    ['us-nc-053', 6],
+    ['us-nc-009', 0],
+    ['us-nc-115', 2],
+    ['us-nc-021', 4],
+    ['us-nc-071', 2],
+    ['us-nc-015', 8],
+    ['us-nc-173', 0],
+    ['us-nc-035', 4],
+    ['us-nc-069', 2],
+    ['us-nc-005', 1],
+    ['us-nc-123', 6],
+    ['us-nc-149', 0],
+    ['us-nc-105', 4],
+    ['us-nc-043', 0],
+    ['us-nc-017', 13],
+    ['us-nc-167', 2]
+];
+
+// Create the chart
+Highcharts.mapChart('container', {
+    chart: {
+        map: 'countries/us/us-all'
+    },
+
+    title: {
+        text: 'Confirmed COVID-19 Cases by State'
+    },
+
+    subtitle: {
+        text: 'As of 19 MARCH 2020'
+    },
+
+    mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom'
+        }
+    },
+
+    colorAxis: {
+        stops: [
+            [0, '#FFFFFF'],
+            [0.1, '#6970FF'],
+            [0.2, '#4850FF'],
+            [0.9, '#000FFF']
+        ],
+        min: 0
+    },
+
+    series: [{
+        data: data,
+        name: 'Random data',
+        states: { hover: { enabled: false } },
+        dataLabels: {
+            enabled: true,
+            format: '{point.name}'
+        }
+    }]
+});
+</script>
