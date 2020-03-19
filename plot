@@ -4,21 +4,15 @@
 
 
 
-
-<style>
-#container {
-    min-width: 700px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-</style>
-
-
-
-
 <script>
 Highcharts.chart('container', {
 
+    chart: {
+        type: 'line',
+        width: 900,
+        height: 700
+    },
+    
     title: {
         text: 'Highcharts with a shared tooltip formatter'
     },
