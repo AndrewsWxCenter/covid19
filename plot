@@ -25,8 +25,10 @@ Highcharts.chart('container', {
 
     xAxis: {
         categories: [
-            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+            '1 MAR', '2 MAR', '3 MAR', '4 MAR', '5 MAR', '6 MAR',
+            '7 MAR', '8 MAR', '9 MAR', '10 MAR', '11 MAR', '12 MAR',
+            '13 MAR', '14 MAR', '15 MAR', '16 MAR', '17 MAR', '18 MAR',
+            '19 MAR'
         ],
         crosshair: true
     },
